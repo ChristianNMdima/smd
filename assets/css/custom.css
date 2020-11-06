@@ -1,0 +1,9 @@
+.smd-jumbo {
+    background-image: url('../img/jumbo.jpg') !important;
+    background-attachment: fixed;
+    color: white !important;
+}
+
+.required {
+    color: red;
+}

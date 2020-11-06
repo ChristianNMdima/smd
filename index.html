@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <title>SMD</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap-4.5.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/vendor/toastjs/toast.min.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+
+<body ng-controller="main_controller">
+
+    <div class="jumbotron smd-jumbo img-responsive text-center">
+        <h1>SMD</h1>
+        <p>Christian Nhlakanipho Mdima</p>
+    </div>
+
+    <ui-view></ui-view>
+
+    <!-- ANGULARJS -->
+    <script src="assets/vendor/angular/angular.min.js"></script>
+    <script src="assets/vendor/angular/angular-ui-router.js"></script>
+    <script src="assets/vendor/angular/angular-block-ui.min.js"></script>
+
+    <!-- MOMENTJS -->
+    <script src="assets/vendor/momentjs/moment.js"></script>
+    <script src="assets/vendor/momentjs/angular-moment.js"></script>
+
+    <!-- APP -->
+    <script src="app/app.js"></script>
+    <script src="app/main_controller.js"></script>
+    <script src="app/services/api_service.js"></script>
+    <script src="app/services/validation_service.js"></script>
+    <script src="app/pipes/mask.js"></script>
+    <script src="app/view/home/home.js"></script>
+
+    <!-- TOAST -->
+    <script src="assets/vendor/toastjs/toast.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<div class="container" ng-init="getData()">
+    <div class="row">
+        <div class="col-sm-2">
+            <div ng-hide="formValid">
+                <span style="color: red;">
+                    <small>Phone number should start with a 0 and should contain 10 digits.</small>
+                </span>
+            </div>
+            <div ng-show="formValid">
+                <h3>Add</h3>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" ng-model="age"> Age
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" ng-model="dob"> Date of Birth
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" ng-model="gender"> Gender
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" ng-model="car_make">  Car make
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" ng-model="car_colour"> Car colour
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 card">
+            {{users.message}}
+            <form ng-submit="saveData()">
+                <div class="form-group">
+                    <label for="Name">Name <span class="required">*</span></label>
+                    <input type="name" class="form-control" placeholder="Enter name" id="name" ng-model="user.name" ng-keyup="validate()" required />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <input type="email" class="form-control" placeholder="Enter email" id="email" ng-model="user.email" ng-keyup="validate()" required />
+                </div>
+                <div class="form-group">
+                    <label for="phone_number">Phone Number <span class="required">*</span></label>
+                    <input type="text" class="form-control" placeholder="Enter phone number" id="phone_number" ng-model="user.phone_number" ng-keyup="validate()" required />
+                </div>
+                <div class="form-group" ng-if="gender">
+                    <label for="phone_number">Gender</label>
+                    <select class="form-control" ng-model="user.gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group" ng-if="age">
+                    <label for="age">Age</label>
+                    <input type="number" class="form-control" placeholder="Enter age" id="age" ng-model="user.age">
+                </div>
+                <div class="form-group" ng-if="dob">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" class="form-control" id="dob" ng-model="user.dob">
+                </div>
+                <div class="form-group" ng-if="car_make">
+                    <label for="car_make">Car make</label>
+                    <input type="text" class="form-control" placeholder="Car make" id="car_make" ng-model="user.car_make">
+                </div>
+                <div class="form-group" ng-if="car_colour">
+                    <label for="car_colour">Car Colour</label>
+                    <input type="text" class="form-control" placeholder="Car colour" id="car_colour" ng-model="user.car_colour">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+        <div class="col-sm-7">
+            <div class="table-responsive" style="height: 400px !important; font-size: 11px;">
+                <table class="table small table-dark table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                            <th>Age</th>
+                            <th>DOB</th>
+                            <th>Gender</th>
+                            <th>Car Make</th>
+                            <th>Car Colour</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="user in users.data">
+                            <td>{{user.name}}</td>
+                            <td>{{user.email}}</td>
+                            <td style="width:700% !important;">{{user.phone_number | mask}}</td>
+                            <td>{{user.age}}</td>
+                            <td>{{user.dob}}</td>
+                            <td>{{user.gender}}</td>
+                            <td>{{user.car_make}}</td>
+                            <td>{{user.car_colour}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
